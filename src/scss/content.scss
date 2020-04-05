@@ -1,0 +1,14 @@
+.content__row{
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin-left: 50px;
+    .content__title{
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .content__img{
+        width: 800px;
+    }
+}

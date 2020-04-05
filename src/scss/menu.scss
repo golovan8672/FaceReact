@@ -1,0 +1,19 @@
+.menu__row{
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid black;
+    .menu__nav{
+        padding-right: 15px;
+        li{
+            padding-bottom: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            &:last-child{
+                padding: 0;
+            }
+            a{
+                color: black;
+            }
+        }
+    }
+}
