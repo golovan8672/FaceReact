@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Content = () => {
+const Profile = () => {
     return (
         <div className="content__row">
             <div className="content__title">FaceReact помогает вам всегда оставаться на связи и общаться со своими знакомыми.</div>
@@ -17,4 +17,4 @@ const Content = () => {
     );
 }
 
-export default Content;
+export default Profile;

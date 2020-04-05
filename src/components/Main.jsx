@@ -1,14 +1,14 @@
 import React from 'react';
-import Content from './Content';
-import Menu from './Menu';
+import Profile from './Profile/Profile';
+import Navbar from './Navbar/Navbar';
 
 const Main = () => {
     return (
-        <div className='main'>
+      <div className='main'>
         <div className="container">
-          <div className ="main__row">
-          <Menu />
-          <Content />
+          <div className="main__row">
+            <Navbar />
+            <Profile />
           </div>
         </div>
       </div>
