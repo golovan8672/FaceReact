@@ -1,14 +1,22 @@
-.content__row{
+.profile__row{
     display: flex;
     flex-direction: column;
     max-width: 800px;
     margin-left: 50px;
-    .content__title{
-        font-size: 24px;
-        font-weight: bold;
+    .profile__block{
+        display: flex;
+        width: 600px;
+        height: 100px;
+        justify-content: center;
+        background: #3b5998;
         margin-bottom: 20px;
-    }
-    .content__img{
-        width: 800px;
+        p{
+            display: flex;
+            align-items: center;
+            font-size: 32px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: white;
+        }
     }
 }
