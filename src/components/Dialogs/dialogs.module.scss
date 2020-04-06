@@ -1,0 +1,23 @@
+.dialogs__row{
+    width: 100%;
+    display: flex;
+}
+.dialogs{
+    margin: 0 40px;
+    .dialog{
+        padding-bottom: 40px;
+        font-size: 20px;
+        a{
+            color: black;
+        }
+    }
+}
+.messages{
+    margin-left: 100px;
+    .message{
+        padding-bottom: 40px;
+        font-size: 20px;
+        font-style: italic;
+
+    }
+}

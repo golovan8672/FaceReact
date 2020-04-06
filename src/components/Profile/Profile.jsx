@@ -2,7 +2,16 @@ import React from 'react';
 import MyPost from './MyPost/MyPost';
 import './profile.scss';
 
+const ProfileInfo = () => {
+    return (
+        <div>
+            <div className="profile__text">
+                <p>ava + desc</p>
+            </div>
+        </div>
 
+    )
+}
 
 const Profile = () => {
     return (
@@ -10,10 +19,8 @@ const Profile = () => {
             <div className="profile__block">
                 <p>Your profile</p>
             </div>
-            <div className = "profile__text">
-                <p>ava + desc</p>
-                <MyPost/>
-            </div>
+            <ProfileInfo />
+            <MyPost />
         </div>
     );
 }

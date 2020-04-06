@@ -6,9 +6,6 @@ import Footer from './components/Footer/Footer';
 import Profile from './components/Profile/Profile';
 import Navbar from './components/Navbar/Navbar';
 import Dialogs from './components/Dialogs/Dialogs';
-import Settings from './components/Settings/Settings';
-import Music from './components/Music/Music';
-import News from './components/News/News';
 import { Route, BrowserRouter } from 'react-router-dom';
 
 
@@ -29,9 +26,6 @@ const App = (props) => {
               <Navbar />
               <Route path='/dialogs' component={Dialogs} />
               <Route path='/profile' component={Profile} />
-              <Route path='/settings' component={Settings} />
-              <Route path='/news' component={News} />
-              <Route path='/music' component={Music} />
               
               
 
