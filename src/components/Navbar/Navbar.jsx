@@ -1,15 +1,17 @@
 import React from 'react';
+import stl from './navbar.module.scss'
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     return (
         <div className = "menu__row">
-            <div className="menu__nav">
+            <div className={stl.nav}>
                 <ul>
-                    <li><a href="s#">Profile</a></li>
-                    <li><a href="s#">Messages</a></li>
-                    <li><a href="s#">News</a></li>
-                    <li><a href="s#">Music</a></li>
-                    <li><a href="s#">Settings</a></li>
+                    <li><NavLink to = '/profile' activeClassName = {stl.active}>Profile</NavLink></li>
+                    <li><NavLink to ="/dialogs" activeClassName = {stl.active}>Dialogs</NavLink></li>
+                    <li><NavLink to = '/music' activeClassName = {stl.active}>Music</NavLink></li>
+                    <li><NavLink to ="/news" activeClassName = {stl.active}>News</NavLink></li>
+                    <li><NavLink to = '/settings' activeClassName = {stl.active}>Settings</NavLink></li>
                 </ul>
             </div>
         </div>

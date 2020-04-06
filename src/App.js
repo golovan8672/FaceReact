@@ -1,32 +1,46 @@
 import React from 'react';
 import './App.scss';
 import './normalize.scss';
-import './components/Header/header.scss';
-import './components/Footer/footer.scss';
-import './components/Profile/profile.scss';
-import './components/Navbar/navbar.scss';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Profile from './components/Profile/Profile';
 import Navbar from './components/Navbar/Navbar';
+import Dialogs from './components/Dialogs/Dialogs';
+import Settings from './components/Settings/Settings';
+import Music from './components/Music/Music';
+import News from './components/News/News';
+import { Route, BrowserRouter } from 'react-router-dom';
 
 
 
 
-const App = () => {
+
+
+
+
+const App = (props) => {
   return (
-    <div className="wrapper">
-      <Header />
-      <div className='main'>
-        <div className="container">
-          <div className="main__row">
-            <Navbar />
-            <Profile />
+    <BrowserRouter>
+      <div className="wrapper">
+        <Header />
+        <div className='main'>
+          <div className="container">
+            <div className="main__row">
+              <Navbar />
+              <Route path='/dialogs' component={Dialogs} />
+              <Route path='/profile' component={Profile} />
+              <Route path='/settings' component={Settings} />
+              <Route path='/news' component={News} />
+              <Route path='/music' component={Music} />
+              
+              
+
+            </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 
