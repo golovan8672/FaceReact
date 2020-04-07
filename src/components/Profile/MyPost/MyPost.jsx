@@ -4,8 +4,9 @@ import Post from './Posts/Post';
 
 
 
-const MyPost = (porps) => {
-    let postsElements = porps.posts.map(el => <Post text = {el.text} likeCount = {el.likeCount} /> )
+const MyPost = (props) => {
+ 
+    let postsElements = props.state.posts.map(el => <Post text = {el.text} likeCount = {el.likeCount} /> )
     return (
         <div className = {stl.item}>
             <div className ={stl.title}>My posts</div>

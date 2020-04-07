@@ -12,7 +12,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 
 
 const App = (props) => {
-  debugger
+
   return (
     <BrowserRouter>
       <div className="wrapper">
@@ -20,9 +20,9 @@ const App = (props) => {
         <div className='main'>
           <div className="container">
             <div className="main__row">
-              <Navbar links={props.state.links} />
-              <Route path='/dialogs' render = {() => (<Dialogs dialogs={props.state.dialogs} messages={props.state.messages} />)}/>
-              <Route path='/profile' render = {() => ( <Profile posts={props.state.posts} />)}/>
+              <Navbar state={props.state.sidebar} />
+              <Route path='/dialogs' render = {() => (<Dialogs state={props.state.dialogsPage} state={props.state.dialogsPage} />)}/>
+              <Route path='/profile' render = {() => ( <Profile state = {props.state} />)}/>
 
 
 
