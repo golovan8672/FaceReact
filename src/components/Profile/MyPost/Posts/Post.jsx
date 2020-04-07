@@ -1,6 +1,7 @@
 import React from 'react';
 import stl from './post.module.scss'
 
+
 const Post = (props) => {
     return (
         <div className={stl.post}>

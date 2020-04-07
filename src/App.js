@@ -7,11 +7,7 @@ import Profile from './components/Profile/Profile';
 import Navbar from './components/Navbar/Navbar';
 import Dialogs from './components/Dialogs/Dialogs';
 import { Route, BrowserRouter } from 'react-router-dom';
-
-
-
-
-
+import {links, dialogs, messages,posts} from './index'
 
 
 
@@ -23,9 +19,13 @@ const App = (props) => {
         <div className='main'>
           <div className="container">
             <div className="main__row">
-              <Navbar />
-              <Route path='/dialogs' component={Dialogs} />
-              <Route path='/profile' component={Profile} />
+              <Navbar links = {links}/>
+              <Route path='/dialogs'>
+                <Dialogs dialogs = {dialogs} messages = {messages}/>
+              </Route>
+              <Route path='/profile' component={Profile}>
+                <Profile posts = {posts} />
+              </Route>
               
               
 
@@ -40,3 +40,4 @@ const App = (props) => {
 
 
 export default App;
+
