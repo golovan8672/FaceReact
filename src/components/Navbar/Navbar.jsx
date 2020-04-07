@@ -1,12 +1,8 @@
 import React from 'react';
 import stl from './navbar.module.scss'
 import { NavLink } from 'react-router-dom'
+import NavItem from './NavItem/NavItem'
 
-const NavItem = (props) => {
-    return(
-        <li><NavLink to = {props.path} activeClassName = {stl.active}>{props.nameNav}</NavLink></li>
-    )
-}
 
 let Navs = [
     {nameNav:"Profile",path:'/profile'},
