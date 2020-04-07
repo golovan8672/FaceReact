@@ -7,11 +7,12 @@ import Profile from './components/Profile/Profile';
 import Navbar from './components/Navbar/Navbar';
 import Dialogs from './components/Dialogs/Dialogs';
 import { Route, BrowserRouter } from 'react-router-dom';
-import {links, dialogs, messages,posts} from './index'
+
 
 
 
 const App = (props) => {
+  debugger
   return (
     <BrowserRouter>
       <div className="wrapper">
@@ -19,15 +20,11 @@ const App = (props) => {
         <div className='main'>
           <div className="container">
             <div className="main__row">
-              <Navbar links = {links}/>
-              <Route path='/dialogs'>
-                <Dialogs dialogs = {dialogs} messages = {messages}/>
-              </Route>
-              <Route path='/profile' component={Profile}>
-                <Profile posts = {posts} />
-              </Route>
-              
-              
+              <Navbar links={props.state.links} />
+              <Route path='/dialogs' render = {() => (<Dialogs dialogs={props.state.dialogs} messages={props.state.messages} />)}/>
+              <Route path='/profile' render = {() => ( <Profile posts={props.state.posts} />)}/>
+
+
 
             </div>
           </div>
