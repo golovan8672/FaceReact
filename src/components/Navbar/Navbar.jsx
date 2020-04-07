@@ -8,16 +8,21 @@ const NavItem = (props) => {
     )
 }
 
+let Navs = [
+    {nameNav:"Profile",path:'/profile'},
+    {nameNav:"Dialogs",path:'/dialogs'},
+    {nameNav:"Music",path:'/music'},
+    {nameNav:"News",path:'/news'},
+    {nameNav:"Settings",path:'/settings'}
+]
+
 const Navbar = () => {
+    let navElements = Navs.map(link =><NavItem nameNav = {link.nameNav} path = {link.path}/>)
     return (
         <div className = "menu__row">
             <div className={stl.nav}>
                 <ul>
-                    <NavItem nameNav = "Profile" path = '/profile'/>
-                    <NavItem nameNav = "Dialogs" path = '/dialogs'/>
-                    <NavItem nameNav = "Music" path = '/music'/>
-                    <NavItem nameNav = "News" path = '/news'/>
-                    <NavItem nameNav = "Settings" path = '/settings'/>
+                    {navElements}
                 </ul>
             </div>
         </div>
