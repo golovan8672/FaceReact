@@ -29,6 +29,11 @@ export const state = {
   },
   
   sidebar: {
+    friends : [
+      {name: "Sergey"},
+      {name: "Andrey"},
+      {name: "Georgy"}
+  ],
     links:
       [
         { nameNav: "Profile", path: '/profile' },
