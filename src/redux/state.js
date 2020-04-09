@@ -25,9 +25,9 @@ let state = {
     updatedText: "",
     posts:
       [
-        { text: "Hi, how are u", likeCount: "10" },
-        { text: "I,am fine", likeCount: "2" },
-        { text: "Come on", likeCount: "7" }
+        { text: "Hi, how are u", likeCount: "10",id:1 },
+        { text: "I,am fine", likeCount: "2" ,id : 2},
+        { text: "Come on", likeCount: "7", id: 3}
         
       ]
   },
@@ -54,20 +54,17 @@ export let updateNewText = (newText) =>{
   state.profilePage.updatedText = newText;
   rerenderTree(state,addPosts,updateNewText);
 }
-
 export let addPosts = () => {
   let addPost = {
-    id : 5,
+    id: 4,
     text: state.profilePage.updatedText,
     likeCount: 0
   }
   state.profilePage.posts.push(addPost);
-  state.profilePage.updatedText = '';
-
+  state.profilePage.updatedText = ''; 
   rerenderTree(state,addPosts,updateNewText);
   
 }
-
 export const subscriber = (observer) => {
   rerenderTree = observer;
   rerenderTree(state,addPosts,updateNewText);
