@@ -7,6 +7,11 @@ import MessageItem from './MessageItem/MessageItem'
 
 
 const Dialogs = (props) => {
+    let getText = React.createRef();
+
+    let addMessage = () => {
+        alert(getText.current.value)
+    }
     debugger
     let dialogElements = props.state.dialogs.map(person => <DialogItem name={person.name} id={person.id} />);
     let messageElements = props.state.messages.map(word => <MessageItem message={word.message} />)
@@ -15,9 +20,14 @@ const Dialogs = (props) => {
             <div className={stl.dialogs}>
                 {dialogElements}
             </div>
-            <div className={stl.messages}>
-                {messageElements}
+            <div className={stl.messages__row}>
+                <div className={stl.messages}>
+                    {messageElements}
+                </div>
+                <textarea ref = {getText}></textarea>
+                <div className={stl.btn}><button onClick = {addMessage}>Send</button></div>
             </div>
+
         </div>
 
     )

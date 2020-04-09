@@ -14,14 +14,13 @@ const ProfileInfo = () => {
 }
 
 const Profile = (props) => {
-
     return (
         <div className="profile__row">
             <div className="profile__block">
                 <p>Your profile</p>
             </div>
             <ProfileInfo />
-            <MyPost state = {props.state.profilePage} />
+            <MyPost state = {props.state.profilePage} addPosts = {props.addPosts} updateNewText = {props.updateNewText} />
         </div>
     );
 }

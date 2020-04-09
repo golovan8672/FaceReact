@@ -1,4 +1,6 @@
-export const state = {
+let rerenderTree = () => {return}
+
+let state = {
   dialogsPage: {
     messages:
       [
@@ -20,11 +22,13 @@ export const state = {
     ]
   },
   profilePage: {
+    updatedText: "",
     posts:
       [
         { text: "Hi, how are u", likeCount: "10" },
         { text: "I,am fine", likeCount: "2" },
         { text: "Come on", likeCount: "7" }
+        
       ]
   },
   
@@ -44,4 +48,27 @@ export const state = {
       ]
   }
 
+}
+
+export let updateNewText = (newText) =>{
+  state.profilePage.updatedText = newText;
+  rerenderTree(state,addPosts,updateNewText);
+}
+
+export let addPosts = () => {
+  let addPost = {
+    id : 5,
+    text: state.profilePage.updatedText,
+    likeCount: 0
+  }
+  state.profilePage.posts.push(addPost);
+  state.profilePage.updatedText = '';
+
+  rerenderTree(state,addPosts,updateNewText);
+  
+}
+
+export const subscriber = (observer) => {
+  rerenderTree = observer;
+  rerenderTree(state,addPosts,updateNewText);
 }

@@ -11,8 +11,9 @@ import { Route, BrowserRouter } from 'react-router-dom';
 
 
 
-const App = (props) => {
 
+const App = (props) => {
+  debugger
   return (
     <BrowserRouter>
       <div className="wrapper">
@@ -22,7 +23,7 @@ const App = (props) => {
             <div className="main__row">
               <Navbar state={props.state.sidebar} />
               <Route path='/dialogs' render = {() => (<Dialogs state={props.state.dialogsPage} state={props.state.dialogsPage} />)}/>
-              <Route path='/profile' render = {() => ( <Profile state = {props.state} />)}/>
+              <Route path='/profile' render = {() => ( <Profile state = {props.state} addPosts = {props.addPosts} updateNewText = {props.updateNewText} />)}/>
 
 
 
