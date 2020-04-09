@@ -27,7 +27,7 @@ let state = {
       [
         { text: "Hi, how are u", likeCount: "10",id:1 },
         { text: "I,am fine", likeCount: "2" ,id : 2},
-        { text: "Come on", likeCount: "7", id: 3}
+        { text: "Come here", likeCount: "7", id: 3}
         
       ]
   },
