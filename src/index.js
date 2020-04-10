@@ -3,22 +3,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {subscriber} from './redux/state';
-// import state from './redux/state';
+import store from './redux/store';
 
 
 
-const rerenderTree = (state,addPosts,updateNewText) => {
+const rerenderTree = () => {
     ReactDOM.render(
   
       <React.StrictMode>
-        <App state = {state} addPosts = {addPosts} updateNewText = {updateNewText}/>
+        <App state = {store.getState()} dispatch = {store.dispatch.bind(store)}/>
       </React.StrictMode>,
       document.getElementById('root')
     );
+    debugger
   }
 
-  subscriber(rerenderTree);
+  rerenderTree(store.getState())
+  store.subscriber(rerenderTree);
 
 
 

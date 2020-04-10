@@ -3,8 +3,11 @@ import stl from './../dialogs.module.scss'
 
 
 const MessageItem = (props) => {
+
     return (
-        <div className={stl.message}>{props.message}</div>
+            <div className={stl.message}>{props.message}</div>
+
+
     )
 }
 
