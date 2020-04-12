@@ -19,6 +19,7 @@ const profileReducer = (state = initial, action) => {
                 text: state.updatedText,
                 likeCount: 0
             }
+            debugger
             state.posts.push(addPost);
             state.updatedText = '';
             return state;
@@ -28,7 +29,7 @@ const profileReducer = (state = initial, action) => {
         default:
             return state;
     }
-    debugger
+    
 }
 export const updateNewTextActionCreator = (text) => ({ type: UPDATE_NEW_POST, newText: text });
 export const addPostActionCreator = () => ({ type: ADD_POST })

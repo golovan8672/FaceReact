@@ -6,7 +6,7 @@ import Friends from './Friends/Friends';
 
 const Navbar = (props) => {
 
-    let navElements = props.state.sidebar.links.map(link => <NavItem nameNav={link.nameNav} path={link.path} />)
+    let navElements = props.store.getState().sidebar.links.map(link => <NavItem nameNav={link.nameNav} path={link.path} />)
     return (
         <div className="menu__row">
             <div className={stl.nav}>
@@ -14,7 +14,7 @@ const Navbar = (props) => {
                     {navElements}
                 </ul>
             </div>
-            <Friends state = {props.state} />
+            <Friends store = {props.store} />
         </div>
     );
 }

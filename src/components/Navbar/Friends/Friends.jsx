@@ -5,7 +5,7 @@ import FriendsItem from './FriendItem/FriendsItem';
 
 
 const Friends = (props) => {
-    let friendsElement = props.state.sidebar.friends.map(name => <FriendsItem name = {name.name}/> )
+    let friendsElement = props.store.getState().sidebar.friends.map(name => <FriendsItem name = {name.name}/> )
     return (
             <div className={stl.best}>
                 <div className={stl.title}>Best Friends</div>

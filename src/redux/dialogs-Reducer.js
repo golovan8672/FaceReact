@@ -27,7 +27,7 @@ const dialogReducer = (state = initial,action) => {
         case "ADD-MESSAGE":
             let addMessage = {
                 id: 6,
-                message:state.updatedMessage,
+                message:state.updatedMessage
             }
             state.messages.push(addMessage);
             state.updatedMessage = '';

@@ -1,6 +1,6 @@
 import React from 'react';
-import MyPost from './MyPost/MyPost';
 import './profile.scss';
+import MyPostContainer from './MyPost/MyPostContainer';
 
 const ProfileInfo = () => {
     return (
@@ -22,7 +22,7 @@ const Profile = (props) => {
                 <p>Your profile</p>
             </div>
             <ProfileInfo />
-            <MyPost state = {props.state.profilePage} dispatch = {props.dispatch} />
+            <MyPostContainer store = {props.store} />
         </div>
         
     );
