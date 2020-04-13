@@ -22,7 +22,7 @@ const Profile = (props) => {
                 <p>Your profile</p>
             </div>
             <ProfileInfo />
-            <MyPostContainer store = {props.store} />
+            <MyPostContainer  />
         </div>
         
     );

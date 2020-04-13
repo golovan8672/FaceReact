@@ -1,12 +1,13 @@
 import React from 'react';
 import stl from './navbar.module.scss'
 import NavItem from './NavItem/NavItem'
-import Friends from './Friends/Friends';
+import FriendsItem from './FriendsItem/FriendsItem';
 
 
 const Navbar = (props) => {
 
-    let navElements = props.store.getState().sidebar.links.map(link => <NavItem nameNav={link.nameNav} path={link.path} />)
+    let navElements = props.sidebar.links.map(link => <NavItem nameNav={link.nameNav} path={link.path} />)
+    let friendsElement = props.sidebar.friends.map(name => <FriendsItem name = {name.name}/> )
     return (
         <div className="menu__row">
             <div className={stl.nav}>
@@ -14,7 +15,12 @@ const Navbar = (props) => {
                     {navElements}
                 </ul>
             </div>
-            <Friends store = {props.store} />
+            <div className={stl.best}>
+                <div className={stl.title}>Best Friends</div>
+                <div className={stl.friends}>
+                    {friendsElement}
+                </div>
+            </div>
         </div>
     );
 }

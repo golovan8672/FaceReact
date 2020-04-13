@@ -1,5 +1,5 @@
 import React from 'react';
-import stl from './../../navbar.module.scss'
+import stl from './../navbar.module.scss';
 
 
 

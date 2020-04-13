@@ -1,0 +1,46 @@
+.row{
+    margin-left: 20px;
+}
+.user__item{
+    display: flex;
+    flex-direction: row;
+}
+.avatar{
+    display: flex;
+    flex-direction: column;
+    .photoUrl{
+        width: 150px;
+        height: 150px;
+    }
+    .btn{
+        width: 150px;
+        height: 40px;
+        background: rgb(143, 143, 143);
+    }
+}
+.desc {
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    align-items: center;
+    .fullname{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .status{
+        margin-top: 5px;
+        font-size: 16px;
+        font-style: italic;
+    }
+    .location{
+        .country{
+            font-size: 24px;
+        }
+        .city{
+            font-size: 16px;
+            font-style: italic;
+        }
+    }
+    
+}

@@ -4,9 +4,11 @@ import './normalize.scss';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Profile from './components/Profile/Profile';
-import Navbar from './components/Navbar/Navbar';
+import NavbarContainer from './components/Navbar/NavbarContainer';
 import DialogContainer from './components/Dialogs/DialogContainer';
+import UsersContainer from './components/Users/UsersContainer'
 import { Route, BrowserRouter } from 'react-router-dom';
+
 
 const App = (props) => {
   return (
@@ -16,9 +18,10 @@ const App = (props) => {
         <div className='main'>
           <div className="container">
             <div className="main__row">
-              <Navbar store={props.store} />
-              <Route path='/dialogs' render = {() => (<DialogContainer store={props.store}/>)}/>
-              <Route path='/profile' render = {() => ( <Profile store = {props.store}/>)}/>
+              <NavbarContainer />
+              <Route path='/dialogs' render = {() => (<DialogContainer />)}/>
+              <Route path='/profile' render = {() => ( <Profile />)}/>
+              <Route path ='/users' render = {() => (<UsersContainer/>)}/>
             </div>
           </div>
         </div>
