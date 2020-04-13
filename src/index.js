@@ -4,24 +4,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import store from './redux/redux-store';
+import { Provider } from 'react-redux';
 
 
 
-const rerenderTree = () => {
-    ReactDOM.render(
-  
-      <React.StrictMode>
-        <App store = {store}/>
-      </React.StrictMode>,
-      document.getElementById('root')
-    );
-    debugger
-  }
 
-  rerenderTree(store.getState())
-  store.subscribe(() =>{
-    rerenderTree(store.getState())
-  })
+ReactDOM.render(
+  <Provider store={store}>
+    <React.StrictMode>
+      <App store={store} />
+    </React.StrictMode>
+  </Provider>,
+  document.getElementById('root')
+);
+
+
+
 
 
 

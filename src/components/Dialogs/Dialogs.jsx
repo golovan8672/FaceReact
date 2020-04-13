@@ -10,8 +10,8 @@ import MessageItem from './MessageItem/MessageItem'
 const Dialogs = (props) => {
     let getText = React.createRef();
     
-    let dialogElements = props.dialogs.map(person => <DialogItem name={person.name} id={person.id} />);
-    let messageElements = props.messages.map(word => <MessageItem message={word.message} />)
+    let dialogElements = props.dialogsPage.dialogs.map(person => <DialogItem name={person.name} id={person.id} />);
+    let messageElements = props.dialogsPage.messages.map(word => <MessageItem message={word.message} />)
 
 
     let updateMessage = () => {
@@ -32,7 +32,7 @@ const Dialogs = (props) => {
                 <div className={stl.messages}>
                     {messageElements}
                 </div>
-                <textarea ref={getText} onChange={updateMessage} value={props.updatedMessage}></textarea>
+                <textarea ref={getText} onChange={updateMessage} value={props.dialogsPage.updatedMessage}></textarea>
                 <div className={stl.btn}><button onClick={addMessage}>Send</button></div>
             </div>
 
