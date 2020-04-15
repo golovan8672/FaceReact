@@ -1,13 +1,9 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW"
-
+const SET_USERS = "SET_USERS"
 let initial = {
     users:
         [
-            { id: 1, photoUrl: "https://img.icons8.com/plasticine/2x/user.png",fullName: "Sergey.G", Age: 24, status: "I'm happy", location: { country: "Russia", city: "Tyumen" } },
-            { id: 2, photoUrl: "https://img.icons8.com/plasticine/2x/user.png",fullName: "Alex.G", Age: 32, status: "I'm happy, but many", location: { country: "Russia", city: "Moscow" } },
-            { id: 3, photoUrl: "https://img.icons8.com/plasticine/2x/user.png",fullName: "Fedor.G", Age: 15, status: "I'm happy too", location: { country: "Russia", city: "Langepas" } }
-
         ]
 
 }
@@ -33,6 +29,11 @@ const usersReducer = (state = initial, action) => {
                     return user
                 })
             }   
+        case "SET_USERS":
+            return {
+                ...state,
+                users: [...state.users, ...action.users]
+            }
         default:
             return state;
 
@@ -40,5 +41,6 @@ const usersReducer = (state = initial, action) => {
 }
 export const followAC = (userId) => ({ type: FOLLOW, userId});
 export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId})
+export const setUserAC = (users) => ({type:SET_USERS, users})
 
 export default usersReducer
