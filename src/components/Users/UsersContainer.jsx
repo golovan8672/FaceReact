@@ -18,6 +18,7 @@ let mapDispatchToProps = (dispatch) => {
         setUsers: (users) => {
             dispatch(setUserAC(users))
         }
+      
     }
 }
 

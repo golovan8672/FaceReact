@@ -26,7 +26,6 @@ const Profile = (props) => {
         </div>
         
     );
-    debugger
 }
 
 export default Profile;

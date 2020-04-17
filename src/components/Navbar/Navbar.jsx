@@ -6,8 +6,8 @@ import FriendsItem from './FriendsItem/FriendsItem';
 
 const Navbar = (props) => {
 
-    let navElements = props.sidebar.links.map(link => <NavItem nameNav={link.nameNav} path={link.path} />)
-    let friendsElement = props.sidebar.friends.map(name => <FriendsItem name = {name.name}/> )
+    let navElements = props.sidebar.links.map(link => <NavItem key={link.id} nameNav={link.nameNav} path={link.path} />)
+    let friendsElement = props.sidebar.friends.map(name => <FriendsItem key={name.id} name={name.name} />)
     return (
         <div className="menu__row">
             <div className={stl.nav}>
