@@ -1,35 +1,51 @@
-import { connect } from "react-redux";
-import UsersClass from "./UsersClass"
-import { unfollowAC,followAC,setUserAC, setCurrentPageAC, setTotalCountAC, setPageSizeAC, setNumberPageAC } from "../../redux/users-Reducer";
+import React from 'react'
+import Users from './Users'
+import * as axios from 'axios'
+import {follow,unfollow,setUsers,setTotalCount,setNumberPage} from '../../redux/users-Reducer'
+import {connect} from 'react-redux'
 
-let mapStateToProps = (state) => {
-    return{
-        users: state.usersPage.users,
-        currentPage: state.usersPage.currentPage,
-        totalCount: state.usersPage.totalCount,
-        pageSize: state.usersPage.pageSize
+export class UsersAPIContainer extends React.Component {
+
+    componentDidMount() {
+        axios
+            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
+            .then(response => {
+                this.props.setUsers(response.data.items);
+                this.props.setTotalCount(response.data.totalCount);
+            })
+    }
+    onPageNumber = (pageNumber) => {
+        this.props.setNumberPage(pageNumber);
+        axios
+            .get(`https://social-network.samuraijs.com/api/1.0/users/?page=${pageNumber}&count=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setUsers(response.data.items);
+            })
+    }
+    render() {
+        return (
+        <div>
+             <Users
+            totalCount = {this.props.totalCount}
+            pageSize = {this.props.pageSize}
+            currentPage = {this.props.currentPage}
+            users = {this.props.users}
+            follow = {this.props.follow}
+            unfollow = {this.props.unfollow}
+            onPageNumber = {this.onPageNumber}
+            />
+        </div>
+        )
+    }   
+}
+
+const mapStateToProps = state => {
+    return {
+    users: state.usersPage.users,
+    pageSize: state.usersPage.pageSize,
+    totalCount: state.usersPage.totalCount,
+    currentPage: state.usersPage.currentPage
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return{
-        follow: (userId) => {
-            dispatch( followAC(userId))
-        },
-        unfollow: (userId) => {
-            dispatch( unfollowAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUserAC(users))
-        },
-        setTotalCount: (totalCount) => {
-            dispatch(setTotalCountAC(totalCount))
-        },
-        setNumberPage: (page) => {
-            dispatch(setNumberPageAC(page))
-        }
-    }
-}
 
-const UsersContainer = connect(mapStateToProps,mapDispatchToProps)(UsersClass) 
-
-export default UsersContainer;
+export default connect (mapStateToProps, {setUsers,unfollow,follow,setTotalCount,setNumberPage})(UsersAPIContainer)
