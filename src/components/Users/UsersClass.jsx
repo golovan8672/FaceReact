@@ -3,18 +3,51 @@ import style from './users.module.scss'
 import * as axios from 'axios'
 import userIcon from './../../img/user.png'
 
-class Users extends React.Component {
+class UsersClass extends React.Component {
 
-    componentDidMount (){
+    componentDidMount() {
         axios
-            .get("https://social-network.samuraijs.com/api/1.0/users")
+            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
             .then(response => {
                 this.props.setUsers(response.data.items);
+                this.props.setTotalCount(response.data.totalCount);
             })
+       
     }
+   
+    onPageNumber = (pageNumber) => {
+        this.props.setNumberPage(pageNumber);
+        axios
+            .get(`https://social-network.samuraijs.com/api/1.0/users/?page=${pageNumber}&count=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setUsers(response.data.items);
+                
+              
+               
+            })
+ 
+    }
+    
+
     render() {
+        let  numberOfPages = Math.ceil(this.props.totalCount / this.props.pageSize)
+
+        let pages = [];
+
+        for (let i = 1; i <= numberOfPages; i++) {
+            pages.push(i);
+        }
+        
         return (
+
             <div className={style.row}>
+                {
+                pages.map(p => 
+                    <span className={(p === this.props.currentPage) && style.selected}
+                    onClick = {() => (this.onPageNumber(p))}>{p}</span>
+                    )
+                }
+
                 {
                     this.props.users.map(user => <div key={user.id}>
                         <div className={style.user__item}>
@@ -41,11 +74,11 @@ class Users extends React.Component {
                 }
 
             </div>
-              )
+        )
     }
-      
+
 
 
 
 }
-export default Users
+export default UsersClass
