@@ -1,9 +1,9 @@
 import React from 'react'
 import style from './users.module.scss'
-import userIcon from './../../img/user.png'
+import userIcon from './../../assets/user.png'
+
 
 const Users = (props) => {
-    debugger
     let numberOfPages = Math.ceil(props.totalCount / props.pageSize)
 
     let pages = [];
@@ -13,7 +13,9 @@ const Users = (props) => {
     }
 
         return (
+            
             <div className={style.row}>
+              
                 {
                     pages.map(p =>
                         <span className={(p === props.currentPage) && style.selected}

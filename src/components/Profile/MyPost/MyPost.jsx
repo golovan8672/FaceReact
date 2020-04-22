@@ -22,7 +22,6 @@ const MyPost = (props) => {
             <div className={stl.btn}><button className={stl.btn_send} onClick={addText}>Send</button></div>
             {
             props.posts.map(post => <div key={post.id}>
-                
                 <div className={stl.post}>  
                     <div className={stl.circle}></div>
                     <div className={stl.text}>{post.text}</div>
