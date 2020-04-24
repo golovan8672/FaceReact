@@ -23,7 +23,7 @@ const MyPost = (props) => {
             {
             props.posts.map(post => <div key={post.id}>
                 <div className={stl.post}>  
-                    <div className={stl.circle}></div>
+                    <div className={stl.circle}><img src = {props.userProfile.photos.small} /></div>
                     <div className={stl.text}>{post.text}</div>
                     <div className={stl.like}>{post.likeCount}<button className = {stl.like_btn} onClick={() => {props.newLike(post.id)}}><img src= {post.likeCount === 0 ? heartLineIcon : heartRedIcon} /></button></div>
                 </div>

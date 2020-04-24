@@ -1,0 +1,44 @@
+
+.container{
+    display: flex;
+    .img {
+        max-width: 250px;
+        max-height: 250px;
+    }
+    .job{
+        margin-top: 20px;
+        .haveJob{
+            font-weight: bold;
+        }
+        div{
+            padding-top: 10px;
+        }
+    }
+    .info{
+      margin-left: 40px;
+      font-size: 18px;
+      .firstName{
+          font-size: 24px;
+          font-weight: bold;
+      }
+      .aboutMe{
+          padding: 5px 0px 20px 0px ;
+          font-size: 16px;
+          font-style: italic;
+      }
+      .contacts{
+        .title{
+            font-size: 18px;
+            padding-bottom: 5px;
+        }
+        .social{
+            padding-bottom: 5px;
+        }
+        span{
+            font-weight: bold;
+        }
+      }
+      
+    }
+
+}

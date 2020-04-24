@@ -1,28 +1,25 @@
 import React from 'react';
 import './profile.scss';
 import MyPostContainer from './MyPost/MyPostContainer';
+import ProfileInfo from './ProfileInfo/ProfileInfo'
+import Preloader from '../commons/preloader';
 
-const ProfileInfo = () => {
-    return (
-        <div>
-            <div className="profile__text">
-                <p>ava + desc</p>
-            </div>
-        </div>
 
-    )
-}
 
 const Profile = (props) => {
  
-    
+    if (!props.userProfile){
+        return (
+            <Preloader />
+        )
+    }
     return (
         <div className="profile__row">
             <div className="profile__block">
                 <p>Your profile</p>
             </div>
-            <ProfileInfo />
-            <MyPostContainer  />
+            <ProfileInfo userProfile = {props.userProfile} />
+            <MyPostContainer userProfile = {props.userProfile} />
         </div>
         
     );

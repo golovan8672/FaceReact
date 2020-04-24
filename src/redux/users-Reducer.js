@@ -49,7 +49,6 @@ const usersReducer = (state = initial, action) => {
                 currentPage: action.page
             }
             case "TOGGLE_IS_FETCHING":
-                debugger
                 return {
                     ...state,
                     isFetching: action.isFetching
