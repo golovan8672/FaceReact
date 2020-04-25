@@ -25,11 +25,12 @@ let initial = {
 const dialogReducer = (state = initial, action) => {
     switch (action.type) {
         case "ADD-MESSAGE":
+            debugger
             if (state.updatedMessage !== "" && state.updatedMessage !== undefined ){
                 debugger
                 let addMessage = {
-                    id: 6,
-                    message: state.updatedMessage
+                    message: state.updatedMessage,
+                    id: `f${(+new Date).toString(16)}`
                 }
                 return {
                     ...state,

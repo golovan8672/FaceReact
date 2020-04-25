@@ -17,11 +17,12 @@ const profileReducer = (state = initial, action) => {
 
     switch (action.type) {
         case "ADD-POST":
+            debugger
             if (state.updatedText !== "" && state.updatedText !== undefined && state.updatedText.length >= 5) {
                 let addPost = {
-                    id: 4,
                     text: state.updatedText,
-                    likeCount: 0
+                    likeCount: 0,
+                    id: `f${(+new Date).toString(16)}`
                 }
                 return {
                     ...state,
@@ -59,9 +60,9 @@ const profileReducer = (state = initial, action) => {
     }
 
 }
-export const updateNewTextActionCreator = (text) => ({ type: UPDATE_NEW_POST, newText: text });
-export const addPostActionCreator = () => ({ type: ADD_POST })
-export const likeAC = (postId) => ({ type: LIKE, postId })
+export const updateNewText = (text) => ({ type: UPDATE_NEW_POST, newText: text });
+export const addNewPost = () => ({ type: ADD_POST })
+export const setNewLike = (postId) => ({ type: LIKE, postId })
 export const setUserProfile = (profile) => ({type:SET_USER_PROFILE,profile})
 
 export default profileReducer

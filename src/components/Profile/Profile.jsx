@@ -1,8 +1,8 @@
 import React from 'react';
 import './profile.scss';
-import MyPostContainer from './MyPost/MyPostContainer';
+import MyPost from './MyPost/MyPost';
 import ProfileInfo from './ProfileInfo/ProfileInfo'
-import Preloader from '../commons/preloader';
+import Preloader from '../commons/preloader/Preloader';
 
 
 
@@ -19,7 +19,14 @@ const Profile = (props) => {
                 <p>Your profile</p>
             </div>
             <ProfileInfo userProfile = {props.userProfile} />
-            <MyPostContainer userProfile = {props.userProfile} />
+            <MyPost 
+            userProfile = {props.userProfile}
+            posts = {props.posts}
+            updateNewText = {props.updateNewText}
+            setNewLike = {props.setNewLike}
+            addNewPost = {props.addNewPost}
+            updatedText = {props.updatedText}
+            />
         </div>
         
     );

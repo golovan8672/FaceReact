@@ -1,5 +1,5 @@
 import React from 'react';
-import Preloader from '../../commons/preloader';
+import Preloader from '../../commons/preloader/Preloader';
 import style from './profileInfo.module.scss'
 
 const ProfileInfo = (props) => {
@@ -30,7 +30,7 @@ const ProfileInfo = (props) => {
                         </ul>
                     </div>
                     <div className={style.job}> About job:
-                        <div>Работа: <span className={style.haveJob}>{(props.userProfile.lookingForAJob === true) ? "Есть" : "Нет"}</span></div>
+                        <div>Работа: <span className={style.haveJob}>{(props.userProfile.lookingForAJob === true) ? "Есть" : "Без работы"}</span></div>
                         <div className={style.jobDesc}>{props.userProfile.lookingForAJobDescription}</div>
                     </div>
                 </div>
