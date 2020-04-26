@@ -1,6 +1,7 @@
 import React from 'react';
 import Preloader from '../../commons/preloader/Preloader';
 import style from './profileInfo.module.scss'
+import userDefLargePhoto from '../../../assets/user.png'
 
 const ProfileInfo = (props) => {
     debugger
@@ -13,7 +14,7 @@ const ProfileInfo = (props) => {
     return (
         <div>
             <div className={style.container}>
-                <img className={style.img} src={props.userProfile.photos.large} />
+                <img className={style.img} src={props.userProfile.photos.large === null ? userDefLargePhoto : props.userProfile.photos.large } />
                 <div className={style.info}>
                     <div className={style.firstName}>{props.userProfile.fullName}</div>
                     <div className={style.aboutMe}>{props.userProfile.aboutMe}</div>
