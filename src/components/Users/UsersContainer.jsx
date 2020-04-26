@@ -11,9 +11,11 @@ export class UsersAPIContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true)
         axios
-
-            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
+            .get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`, {
+                withCredentials: true
+            })
             .then(response => {
+                debugger
                 this.props.toggleIsFetching(false)
                 this.props.setUsers(response.data.items);
                 this.props.setTotalCount(response.data.totalCount);
@@ -23,7 +25,9 @@ export class UsersAPIContainer extends React.Component {
         this.props.toggleIsFetching(true)
         this.props.setNumberPage(pageNumber);
         axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users/?page=${pageNumber}&count=${this.props.pageSize}`)
+            .get(`https://social-network.samuraijs.com/api/1.0/users/?page=${pageNumber}&count=${this.props.pageSize}`, {
+                withCredentials: true
+            })
             .then(response => {
                 this.props.setUsers(response.data.items);
                 this.props.toggleIsFetching(false)
