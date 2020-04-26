@@ -44,16 +44,28 @@ body {
     max-width: 100%;
     background: #3b5998;
 }
+
 .header__row{
     display: flex;
-    flex: 0 1 auto;
     padding: 20px 0 10px 0;
+    justify-content: space-between;
+    .header__description{
+        display: flex;
+        font-size: 40px;
+        color: #ffffff;
+        font-weight: bold;
+        
+    }
+    .login{
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffffff;
+    }
 }
-.header__description{
-    font-size: 40px;
-    color: #ffffff;
-    font-weight: bold;
-}
+
+
 //--------MENU--------//
 .menu__row{
     display: flex;

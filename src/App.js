@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 import './normalize.scss';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Footer from './components/Footer/Footer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import NavbarContainer from './components/Navbar/NavbarContainer';
@@ -10,11 +10,12 @@ import UsersContainer from './components/Users/UsersContainer'
 import { Route, BrowserRouter } from 'react-router-dom';
 
 
+
 const App = (props) => {
   return (
     <BrowserRouter>
       <div className="wrapper">
-        <Header />
+        <HeaderContainer />
         <div className='main'>
           <div className="container">
             <div className="main__row">

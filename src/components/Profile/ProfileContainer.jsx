@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile'
 import { connect } from 'react-redux';
-import { setUserProfile,setNewLike,addNewPost,updateNewText } from '../../redux/profile-Reducer'
+import { setUserProfile, setNewLike, addNewPost, updateNewText } from '../../redux/profile-Reducer'
 import * as axios from 'axios'
 import { withRouter } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ export class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId
 
-        if(!userId){
+        if (!userId) {
             userId = 2;
         }
         axios
@@ -20,6 +20,7 @@ export class ProfileContainer extends React.Component {
             .then(response => {
                 this.props.setUserProfile(response.data);
             })
+       
     }
 
     render() {
@@ -38,4 +39,4 @@ const mapStateToProps = state => ({
 
 
 
-export default withRouter(connect(mapStateToProps, {setUserProfile,setNewLike,addNewPost,updateNewText})(ProfileContainer));
+export default withRouter(connect(mapStateToProps, { setUserProfile, setNewLike, addNewPost, updateNewText })(ProfileContainer));
