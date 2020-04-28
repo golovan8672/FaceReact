@@ -3,7 +3,7 @@ import Users from './Users'
 import Preloader from '../commons/preloader/Preloader'
 import { follow, unfollow, setUsers, setTotalCount, setNumberPage, toggleIsFetching } from '../../redux/users-Reducer'
 import { connect } from 'react-redux'
-import API from '../../API/api'git s
+import API from '../../API/api'
 
 export class UsersAPIContainer extends React.Component {
 
