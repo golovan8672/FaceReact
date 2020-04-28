@@ -2,7 +2,6 @@ import React from 'react'
 import style from './users.module.scss'
 import userIcon from './../../assets/user.png'
 import { NavLink } from 'react-router-dom'
-import * as axios from 'axios'
 import API from '../../API/api'
 
 
@@ -38,6 +37,7 @@ const Users = (props) => {
                                    API.setUnfollow(user.id)
                                         .then(data => {
                                             debugger
+
                                             if (data.resultCode === 0) {
                                                 props.unfollow(user.id);
                                             }
@@ -47,9 +47,11 @@ const Users = (props) => {
                                 }
                                 }>UNFOLLOW</button>
                                 : <button className={style.btn} onClick={() => {
+
                                    API.setFollow(user.id)
                                         .then(data => {
                                             debugger
+
                                             if (data.resultCode === 0) {
                                                 props.follow(user.id);
                                             }

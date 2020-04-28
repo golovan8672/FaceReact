@@ -9,6 +9,7 @@ import API from '../../API/api';
 
 
 
+
 export class ProfileContainer extends React.Component {
 
     componentDidMount() {
@@ -17,7 +18,10 @@ export class ProfileContainer extends React.Component {
         if (!userId) {
             userId = 2;
         }
+
         API.getProfile(userId)
+
+
             .then(data => {
                 debugger
                 this.props.setUserProfile(data);

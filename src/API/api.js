@@ -1,6 +1,7 @@
 import * as axios from 'axios'
 
 
+
 const instanse = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     withCredentials: true,
@@ -37,12 +38,7 @@ const API = {
     },
     setUnfollow(userId) {
         return instanse.delete(`follow/${userId}`)
-            .then(response => {
-                return response.data
-            })
+
     }
-
-
 }
-
 export default API
