@@ -3,6 +3,7 @@ import style from './users.module.scss'
 import userIcon from './../../assets/user.png'
 import { NavLink } from 'react-router-dom'
 import * as axios from 'axios'
+import API from '../../API/api'
 
 
 const Users = (props) => {
@@ -34,17 +35,10 @@ const Users = (props) => {
                             </NavLink>
                             {user.followed
                                 ? <button className={style.btn} onClick={() => {
-                                    axios
-                                        .delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
-                                            {
-                                                withCredentials: true,
-                                                headers: {
-                                                    "API-KEY": "751b76dc-1968-431a-845b-d4369ac728f6"
-                                                }
-                                            })
-                                        .then(response => {
+                                   API.setUnfollow(user.id)
+                                        .then(data => {
                                             debugger
-                                            if (response.data.resultCode === 0) {
+                                            if (data.resultCode === 0) {
                                                 props.unfollow(user.id);
                                             }
 
@@ -53,18 +47,10 @@ const Users = (props) => {
                                 }
                                 }>UNFOLLOW</button>
                                 : <button className={style.btn} onClick={() => {
-                                    axios
-                                        .post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {},
-                                            {
-                                                withCredentials: true,
-                                                headers: {
-                                                    "API-KEY": "751b76dc-1968-431a-845b-d4369ac728f6"
-                                                }
-
-                                            })
-                                        .then(response => {
+                                   API.setFollow(user.id)
+                                        .then(data => {
                                             debugger
-                                            if (response.data.resultCode === 0) {
+                                            if (data.resultCode === 0) {
                                                 props.follow(user.id);
                                             }
 

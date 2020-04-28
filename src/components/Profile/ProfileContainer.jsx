@@ -2,9 +2,10 @@ import React from 'react';
 import Profile from './Profile'
 import { connect } from 'react-redux';
 import { setUserProfile, setNewLike, addNewPost, updateNewText } from '../../redux/profile-Reducer'
-import * as axios from 'axios'
 import { withRouter } from 'react-router-dom';
-import { getProfile } from '../../API/api';
+import API from '../../API/api';
+
+
 
 
 
@@ -16,11 +17,12 @@ export class ProfileContainer extends React.Component {
         if (!userId) {
             userId = 2;
         }
-            getProfile(userId)
-            .then(response => {
-                this.props.setUserProfile(response.data);
+        API.getProfile(userId)
+            .then(data => {
+                debugger
+                this.props.setUserProfile(data);
             })
-       
+
     }
 
     render() {
