@@ -6,6 +6,7 @@ import API from '../../API/api'
 
 
 const Users = (props) => {
+    debugger
     let numberOfPages = Math.ceil(props.totalCount / props.pageSize)
 
     let pages = [];
@@ -33,27 +34,28 @@ const Users = (props) => {
                                 <img src={user.photos.small != null ? user.photos.small : userIcon} className={style.photoUrl} />
                             </NavLink>
                             {user.followed
-                                ? <button className={style.btn} onClick={() => {
+                                ? <button disabled = {props.followingInProgress.some(id => id === user.id)} className={style.btn} onClick={() => {
+                                   props.toggleFollowingIsProgress(true,user.id)
                                    API.setUnfollow(user.id)
                                         .then(data => {
-                                            debugger
-
+                                            props.toggleFollowingIsProgress(false,user.id)
                                             if (data.resultCode === 0) {
                                                 props.unfollow(user.id);
+                                                
                                             }
 
                                         })
                                     props.unfollow(user.id)
                                 }
                                 }>UNFOLLOW</button>
-                                : <button className={style.btn} onClick={() => {
-
+                                : <button disabled = {props.followingInProgress.some(id => id === user.id)} className={style.btn} onClick={() => {
+                                    props.toggleFollowingIsProgress(true,user.id)
                                    API.setFollow(user.id)
                                         .then(data => {
-                                            debugger
-
+                                            props.toggleFollowingIsProgress(false,user.id)
                                             if (data.resultCode === 0) {
                                                 props.follow(user.id);
+                                                
                                             }
 
                                         })
