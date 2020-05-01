@@ -2,12 +2,15 @@ import React from 'react'
 import stl from './dialogs.module.scss'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from './MessageItem/MessageItem'
+import {Redirect}  from 'react-router-dom';
 
 
 
 
 
 const Dialogs = (props) => {
+    debugger    
+    if (!props.isAuth) return <Redirect to = "/login"/>
     let getText = React.createRef();
     
     let dialogElements = props.dialogsPage.dialogs.map(person => <DialogItem name={person.name} id={person.id} />);

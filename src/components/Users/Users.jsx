@@ -2,7 +2,6 @@ import React from 'react'
 import style from './users.module.scss'
 import userIcon from './../../assets/user.png'
 import { NavLink } from 'react-router-dom'
-import API from '../../API/api'
 
 
 const Users = (props) => {
@@ -14,7 +13,7 @@ const Users = (props) => {
     for (let i = 1; i <= numberOfPages; i++) {
         pages.push(i);
     }
-
+debugger
     return (
 
         <div className={style.row}>
@@ -35,32 +34,12 @@ const Users = (props) => {
                             </NavLink>
                             {user.followed
                                 ? <button disabled = {props.followingInProgress.some(id => id === user.id)} className={style.btn} onClick={() => {
-                                   props.toggleFollowingIsProgress(true,user.id)
-                                   API.setUnfollow(user.id)
-                                        .then(data => {
-                                            props.toggleFollowingIsProgress(false,user.id)
-                                            if (data.resultCode === 0) {
-                                                props.unfollow(user.id);
-                                                
-                                            }
-
-                                        })
-                                    props.unfollow(user.id)
+                                   props.unfollow(user.id)
                                 }
                                 }>UNFOLLOW</button>
                                 : <button disabled = {props.followingInProgress.some(id => id === user.id)} className={style.btn} onClick={() => {
-                                    props.toggleFollowingIsProgress(true,user.id)
-                                   API.setFollow(user.id)
-                                        .then(data => {
-                                            props.toggleFollowingIsProgress(false,user.id)
-                                            if (data.resultCode === 0) {
-                                                props.follow(user.id);
-                                                
-                                            }
-
-                                        })
+                                    props.follow(user.id)
                                 }
-
                                 }>FOLLOW</button>
                             }
                         </div>
@@ -68,17 +47,14 @@ const Users = (props) => {
                             <div className={style.info}>
                                 <div className={style.fullname}>{user.name}</div>
                                 <div className={style.status}>{user.status != null ? user.status : "I'm new user"}</div>
-                            </div>
-                            <div className={style.location}>
-                                <div className={style.country}>{/*user.location.country*/}</div>
-                                <div className={style.city}>{/*user.location.city*/}</div>
-                            </div>
+                            </div>                 
                         </div>
                     </div>
                 </div>)
             }
         </div>
     )
+  
 }
 
 

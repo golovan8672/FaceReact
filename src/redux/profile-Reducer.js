@@ -1,3 +1,5 @@
+import API from '../API/api'
+
 const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST = "UPDATE-NEW-POST";
 const LIKE = "LIKE"
@@ -65,4 +67,10 @@ export const addNewPost = () => ({ type: ADD_POST })
 export const setNewLike = (postId) => ({ type: LIKE, postId })
 export const setUserProfile = (profile) => ({type:SET_USER_PROFILE,profile})
 
+export const getProfile = userId => dispatch => {
+        API.getProfile(userId)
+        .then(response => {
+            dispatch(setUserProfile(response.data))
+        })
+    }
 export default profileReducer

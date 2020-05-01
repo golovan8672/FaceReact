@@ -17,26 +17,15 @@ const API = {
     },
     getProfile(userId) {
         return instanse.get(`profile/${userId}`)
-            .then(response => {
-                debugger
-                return response.data
-            })
     },
     getAuth() {
         return instanse.get("auth/me")
-            .then(response => {
-                return response.data
-            })
     },
     setFollow(userId) {
         return instanse.post(`follow/${userId}`)
-            .then(response => {
-                return response.data
-            })
     },
     setUnfollow(userId) {
         return instanse.delete(`follow/${userId}`)
-
     }
 }
 export default API
