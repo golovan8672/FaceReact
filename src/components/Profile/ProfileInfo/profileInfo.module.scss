@@ -1,4 +1,3 @@
-
 .container{
     display: flex;
     .img {
@@ -22,9 +21,20 @@
           font-weight: bold;
       }
       .aboutMe{
-          padding: 5px 0px 20px 0px ;
+          margin: 5px 0px 20px 0px ;
           font-size: 16px;
           font-style: italic;
+      }
+      button{
+        background: white;
+        padding: 2px;
+        &:hover{
+            background: rgb(214, 214, 214);
+        }
+      }
+      input{
+          padding: 2px;
+          background: rgb(214, 214, 214);
       }
       .contacts{
         .title{
