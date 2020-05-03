@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom'
 
 
 const Users = (props) => {
-    debugger
     let numberOfPages = Math.ceil(props.totalCount / props.pageSize)
 
     let pages = [];
@@ -13,7 +12,7 @@ const Users = (props) => {
     for (let i = 1; i <= numberOfPages; i++) {
         pages.push(i);
     }
-debugger
+
     return (
 
         <div className={style.row}>

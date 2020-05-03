@@ -18,7 +18,7 @@ const Profile = (props) => {
             <div className="profile__block">
                 <p>Your profile</p>
             </div>
-            <ProfileInfo userProfile = {props.userProfile} />
+            <ProfileInfo userProfile = {props.userProfile} profileStatus = {props.profileStatus} updateProfileStatus = {props.updateProfileStatus} />
             <MyPost 
             userProfile = {props.userProfile}
             posts = {props.posts}

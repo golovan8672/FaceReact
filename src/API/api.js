@@ -26,6 +26,12 @@ const API = {
     },
     setUnfollow(userId) {
         return instanse.delete(`follow/${userId}`)
+    },
+    getProfileStatus(userId){
+        return instanse.get(`profile/status/${userId}`)
+    },
+    updateProfileStatus(status){
+        return instanse.put(`profile/status`,{status : status})
     }
 }
 export default API

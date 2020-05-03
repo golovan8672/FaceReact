@@ -1,15 +1,19 @@
 import React from 'react'
 import style from '../profileInfo.module.scss'
+import { updateProfileStatus } from '../../../../redux/profile-Reducer'
+import { connect } from 'react-redux'
 
 
 class UserStatus extends React.Component {
-    
-    state = {
-        isEdit: false
-    }
 
+    state = {
+        isEdit: false,
+        profileStatus: this.props.profileStatus 
+    }
+    updateText = (e) => {
+        this.setState({profileStatus: e.currentTarget.value})
+    }
     activeEditMode = () =>  {
-        debugger
         this.setState ({
             isEdit: true
         })
@@ -18,14 +22,24 @@ class UserStatus extends React.Component {
         this.setState ({
             isEdit: false
         })
+        this.props.updateProfileStatus(this.state.profileStatus)
     }
+    componentDidUpdate(prevProps){
+        debugger
+        if(prevProps.profileStatus !== this.props.profileStatus ){
+            this.setState({
+                profileStatus: this.props.profileStatus
+            })
+        }
+    }
+    
     render(){
         return (
             <div>
                 {(!this.state.isEdit)
-                 ?  <button onDoubleClick = {this.activeEditMode} className={style.aboutMe}>{this.props.userProfile.aboutMe}</button>
+                 ?  <button onDoubleClick = {this.activeEditMode} className={style.aboutMe}>{this.props.profileStatus || "none"}</button>
 
-                 :  <input onBlur = {this.deactiveEditMode} className={style.aboutMe} value = {this.props.userProfile.aboutMe}></input>
+                 :  <input onChange = {this.updateText} autoFocus = {true} onBlur = {this.deactiveEditMode} className={style.aboutMe} value = {this.state.profileStatus}></input>
 
                 }
                

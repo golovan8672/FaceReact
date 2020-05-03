@@ -4,6 +4,7 @@ const ADD_POST = "ADD-POST"
 const UPDATE_NEW_POST = "UPDATE-NEW-POST";
 const LIKE = "LIKE"
 const SET_USER_PROFILE = "SET_USER_PROFILE"
+const SET_PROFILE_STATUS = "SET_PROFILE_STATUS"
 
 let initial = {
     updatedText: "",
@@ -13,7 +14,8 @@ let initial = {
             { text: "I,am fine", likeCount: 0, id: 2 },
             { text: "Come here", likeCount: 7, id: 3 }
         ],
-    userProfile: null
+    userProfile: null,
+    profileStatus: ""
 }
 const profileReducer = (state = initial, action) => {
 
@@ -57,6 +59,11 @@ const profileReducer = (state = initial, action) => {
                 ...state,
                 userProfile: action.profile
             }
+            case "SET_PROFILE_STATUS":
+                return{
+                    ...state,
+                    profileStatus: action.profileStatus
+                }
         default:
             return state;
     }
@@ -66,11 +73,25 @@ export const updateNewText = (text) => ({ type: UPDATE_NEW_POST, newText: text }
 export const addNewPost = () => ({ type: ADD_POST })
 export const setNewLike = (postId) => ({ type: LIKE, postId })
 export const setUserProfile = (profile) => ({type:SET_USER_PROFILE,profile})
+export const setProfileStatus = (profileStatus) => ({type:SET_PROFILE_STATUS,profileStatus})
 
 export const getProfile = userId => dispatch => {
         API.getProfile(userId)
         .then(response => {
             dispatch(setUserProfile(response.data))
         })
-    }
+}
+export const getProfileStatus = userId => dispatch => {
+    API.getProfileStatus(userId)
+    .then(response => {
+        dispatch(setProfileStatus(response.data))
+    })
+}
+export const updateProfileStatus = status => dispatch => {
+    API.updateProfileStatus(status)
+    .then(response => {
+        dispatch(setProfileStatus(status))
+        
+    })
+}
 export default profileReducer

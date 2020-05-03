@@ -5,7 +5,7 @@ import heartRedIcon from '../../../assets/heart-2.png'
 import BlueCircle from '../../commons/blueCircle/BlueCircle'
 
 const MyPost = (props) => {
-    debugger
+ 
     let getText = React.createRef();
 
     let updateText = () => {
@@ -15,7 +15,7 @@ const MyPost = (props) => {
     let addText = () => {
         props.addNewPost();
     }
-    debugger
+    
     return (
         <div className={stl.item}>
         
