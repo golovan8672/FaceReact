@@ -26,32 +26,27 @@ const dialogReducer = (state = initial, action) => {
     switch (action.type) {
         case "ADD-MESSAGE":
             debugger
-            if (state.updatedMessage !== "" && state.updatedMessage !== undefined ){
+            if (action.enteredText !== "" && action.enteredText !== undefined ){
                 debugger
                 let addMessage = {
-                    message: state.updatedMessage,
+                    message: action.enteredText,
                     id: `f${(+new Date).toString(16)}`
                 }
                 return {
                     ...state,
                     messages: [ ...state.messages,addMessage],
-                    updatedMessage: ""
-                }
+                    
+                }   
             } else {
                 alert("Введите текст!")
             }
             
-        case "UPDATE-NEW-MESSAGE":
-            return {
-                ...state,
-                updatedMessage: action.newText
-            }
         default:
             return state;
 
     }
 }
 export const updateNewMessageActionCreator = (text) => ({ type: UPDATE_NEW_MESSAGE, newText: text });
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE })
+export const addMessageActionCreator = (enteredText) => ({ type: ADD_MESSAGE, enteredText })
 
 export default dialogReducer

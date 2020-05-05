@@ -15,8 +15,8 @@ let mapDispatchToProps =(dispatch) => {
         updateNewMessage: (text) => {
             dispatch(updateNewMessageActionCreator(text));
         },
-        addNewMessage: () => {
-            dispatch(addMessageActionCreator())
+        addNewMessage: (enteredText) => {
+            dispatch(addMessageActionCreator(enteredText))
         }
     }
 }
