@@ -16,7 +16,7 @@ class UserStatus extends React.Component {
     activeEditMode = () =>  {
         this.setState ({
             isEdit: true
-        })
+        }) 
     }
     deactiveEditMode = () => {
         this.setState ({
@@ -25,7 +25,6 @@ class UserStatus extends React.Component {
         this.props.updateProfileStatus(this.state.profileStatus)
     }
     componentDidUpdate(prevProps){
-        debugger
         if(prevProps.profileStatus !== this.props.profileStatus ){
             this.setState({
                 profileStatus: this.props.profileStatus
