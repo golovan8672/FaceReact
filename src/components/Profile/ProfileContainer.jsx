@@ -27,13 +27,12 @@ export class ProfileContainer extends React.Component {
 const mapStateToProps = state => ({
     userProfile: state.profilePage.userProfile,
     posts: state.profilePage.posts,
-    updatedText: state.profilePage.updatedText,
     profileStatus: state.profilePage.profileStatus
     
 })
 export default compose(
     withRouter,
     withAuthHOC,
-    connect(mapStateToProps, { getProfile,getProfileStatus, updateProfileStatus, setNewLike, addNewPost, updateNewText })
+    connect(mapStateToProps, { getProfile,getProfileStatus, updateProfileStatus, setNewLike, addNewPost })
 )(ProfileContainer)
 

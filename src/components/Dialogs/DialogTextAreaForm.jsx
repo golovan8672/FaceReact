@@ -6,7 +6,7 @@ const DialogTextAreaForm = (props) => {
     return (
         <>
             <form onSubmit = {props.handleSubmit}>
-                <Field  name="enteredText" component = "textarea"></Field>
+                <Field  placeholder = "Введите текст..." name="enteredText" component = "textarea"></Field>
                 <div className={stl.btn}><button>Send</button></div>
             </form>
 

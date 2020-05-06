@@ -25,7 +25,6 @@ const Profile = (props) => {
             updateNewText = {props.updateNewText}
             setNewLike = {props.setNewLike}
             addNewPost = {props.addNewPost}
-            updatedText = {props.updatedText}
             />
         </div>
         

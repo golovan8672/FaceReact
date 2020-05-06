@@ -2,7 +2,6 @@ const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE";
 const ADD_MESSAGE = "ADD-MESSAGE"
 
 let initial = {
-    updatedMessage: "",
     messages:
         [
             { message: "Hello", id: 1 },
@@ -46,7 +45,6 @@ const dialogReducer = (state = initial, action) => {
 
     }
 }
-export const updateNewMessageActionCreator = (text) => ({ type: UPDATE_NEW_MESSAGE, newText: text });
 export const addMessageActionCreator = (enteredText) => ({ type: ADD_MESSAGE, enteredText })
 
 export default dialogReducer

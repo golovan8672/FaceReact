@@ -1,4 +1,4 @@
-import { addMessageActionCreator,updateNewMessageActionCreator } from '../../redux/dialog-Reducer'
+import { addMessageActionCreator } from '../../redux/dialog-Reducer'
 import Dialogs from './Dialogs'
 import { connect } from 'react-redux'
 import withAuthHOC from '../withAuthHOC/withAuthHOC'
@@ -12,9 +12,6 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps =(dispatch) => {
     return {
-        updateNewMessage: (text) => {
-            dispatch(updateNewMessageActionCreator(text));
-        },
         addNewMessage: (enteredText) => {
             dispatch(addMessageActionCreator(enteredText))
         }
