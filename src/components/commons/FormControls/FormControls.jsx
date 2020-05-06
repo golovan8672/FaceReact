@@ -1,17 +1,12 @@
 import React from 'react'
+import style from './formControls.module.scss'
 
 
-export const TextArea = (props) => {
+export const Input = ({input,meta,...props}) => {
     return (
-        <div>
-            <textarea {...props}/>
-        </div>
-    )
-}
-export const Input = (props) => {
-    return (
-        <div>
-            <input {...props}/>
-        </div>
+        <>
+            <input {...input} {...meta} {...props} className = {meta.error && meta.touched && style.error } />
+            {meta.error && meta.touched && <span className = {style.errorMessage}>{meta.error}</span>} 
+        </>
     )
 }

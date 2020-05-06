@@ -1,5 +1,6 @@
 import * as axios from 'axios'
 
+
 const instanse = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     withCredentials: true,
@@ -32,6 +33,12 @@ const API = {
     },
     updateProfileStatus(status){
         return instanse.put(`profile/status`,{status : status})
+    },
+    login(email,password,rememberMe){
+        return instanse.post(`auth/login`,{email,password,rememberMe})
+    },
+    logout(){
+        return instanse.delete(`auth/login`)
     }
 }
 export default API

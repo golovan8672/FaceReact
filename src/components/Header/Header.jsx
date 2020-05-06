@@ -7,8 +7,8 @@ const Header = (props) => {
             <div className="container">
                 <div className="header__row">
                     <div className="header__description">faceReact</div>
-                    {props.isAuth === true ? <div>{props.login}</div> :
-                    <NavLink to="/login"><div className="login">SIGH IN</div></NavLink>}
+                    {props.isAuth ? <div>{props.login} <button onClick = {props.logout} className = 'loginBtn'>Sign out</button></div> :
+                    <NavLink to="/login"><button className="loginBtn">Sign in</button></NavLink>}
                 </div>
             </div>
         </header>
